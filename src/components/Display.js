@@ -1,31 +1,24 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
-import { login, logout, isLoggedIn } from '../utils/AuthService';
-import '../App.css';
+import Nav from './Nav';
+import isLoggedIn from '../utils/AuthService';
+import axios from 'axios';
 
-class Nav extends Component {
+class Display extends Component {
 
 	render() {
+
 		return(
-			<nav className="navbar navbar-default">
-			<div className="navbar-header">
-			<Link className="navbar-brand" to="/">Miniflix</Link>
+			<div>
+			<Nav />
+			<h3 className="text-center">Latest Videos on Miniflix</h3>
+			<hr />
+
+			<div className="col-sm-12">
+
 			</div>
-
-			<ul className="nav navbar-nav">
-			<li>
-			<Link to="/">All Videos</Link>
-			</li>
-			<li>
-			{(isLoggedIn()) ? 
-				( <button className="btn btn-danger log" onClick={() => logout()}>Log out </button> ) : 
-					( <button className="btn btn-info log" onClick={() => login()}>Log In</button>)
-				}
-				</li>
-				</ul>
-				</nav>
-				);
-			}
+			);
 		}
+	}
 
-		export default Nav;
+	export default Display;
