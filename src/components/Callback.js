@@ -1,7 +1,7 @@
 import {component} from 'react';
 import {setIdToken, setAccessToken} from '../utils/AuthService';
 
-class Callback extends React.Component {
+class Callback extends Component {
 	componentDidMount() {
 		setAccessToken();
 		setIdToken();
