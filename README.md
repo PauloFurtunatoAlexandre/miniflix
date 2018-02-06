@@ -1,7 +1,5 @@
 ## Miniflix
 
-This is the code that accompanies the **Miniflix** tutorial on **Scotch.io**.
-
 ## Installation
 
 ```bash
