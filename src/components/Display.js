@@ -3,19 +3,18 @@ import { Link } from 'react-router';
 import Nav from './Nav';
 import { isLoggedIn } from '../utils/AuthService';
 import axios from 'axios';
-import { CloudnaryContext, Transformation, Video } from 'cloudnary-react';
+import { CloudinaryContext, Transformation, Video } from 'cloudinary-react';
+import { Share } from 'react-twitter-widgets'
 
 class Display extends Component {
 
-	state = { videos [] };
+	state = { videos: [] };
 
 	getVideos() {
 		axios.get('http://res.cloudinary.com/unicodeveloper/video/list/miniflix.json')
-		.then({
-			res => {
-				console.log(res.data.resources);
-				this.setState({ videos: res.data.resources });
-			}
+		.then(res => {
+			console.log(res.data.resources);
+			this.setState({ videos: res.data.resources});
 		});
 	}
 
@@ -25,7 +24,7 @@ class Display extends Component {
 
 	render() {
 
-		const { videos } = this.state;
+		const { videos }  = this.state;
 
 		return(
 			<div>
@@ -41,15 +40,15 @@ class Display extends Component {
 				<Video publicId={data.public_id} width="300" height="300" controls></Video>
 				</div>
 				<div> Created at {data.created_at} </div>
-
+				<Share url={`http://res.cloudinary.com/unicodeveloper/video/upload/${data.public_id}.mp4`} />
 				</div>
 				))
+			}
+			</CloudinaryContext>
+			</div>
+			</div>
+			);
 		}
-		</CloudinaryContext>
-		</div>
-		</div>
-		);
 	}
-}
 
-export default Display;
+	export default Display;

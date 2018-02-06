@@ -4,12 +4,13 @@ import Nav from './Nav';
 
 class Upload extends Component {
 
+	state = { videos: [] };
+
 	uploadWidget = () => {
 		window.cloudinary.openUploadWidget(
-			{ cloud_name: 'cloud_name',
-			upload_preset: '<unsigned-preset>',
-			tags: ['miniflix'],
-			sources: ['local', 'url', 'google_photos', 'facebook', 'image_search']
+			{ cloud_name: 'miniflix-project',
+			upload_preset: 'gbwztkqu',
+			tags: ['miniflix']
 		},
 		function(error, result) {
 			console.log("This is the result of the last upload", result);
@@ -20,7 +21,7 @@ class Upload extends Component {
 		return (
 			<div>
 			<Nav />
-			<h3 className="text-center">Upload Your 20-second Video in a Jiffy</h3>
+			<h3 className="text-center">Upload Your 20-second Video in a blink of an eye</h3>
 			<hr/>
 
 			<div className="col-sm-12">
