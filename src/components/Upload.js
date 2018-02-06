@@ -24,7 +24,7 @@ class Upload extends Component {
     return (
       <div>
       <Nav />
-      <h3 className="text-center">Upload Your 20-second Video in a Jiffy</h3>
+      <h3 className="text-center">Upload Your 20-second Video in a blink of an Eye</h3>
       <hr/>
 
       <div className="col-sm-12">
